@@ -1,0 +1,32 @@
+.small-screen-layout {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 1800px;
+}
+
+.small-screen-left-layout {
+  flex: 0.4;
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.small-screen-center-layout {
+  flex: 1;
+}
+
+.small-screen-right-layout {
+  flex: 1;
+}
+
+.small-screen-first-left-layout {
+  flex: 1;
+  padding-right: 5px;
+}
+
+.small-screen-second-left-layout {
+  flex: 1;
+  padding-left: 5px;
+}

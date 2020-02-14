@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header/';
+import Footer from './components/Footer/';
+import ResponsiveLayout from './layout/ResponsiveLayout/';
+import BigScreen from './layout/BigScreen/';
+import SmallScreen from './layout/SmallScreen/';
+import WindowDimensionsProvider from './components/WindowDimensionsProvider';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WindowDimensionsProvider>
+      <div className="container">
+        <div className="header-layout">
+          <Header />
+        </div>
+        <div className="center-layout">
+          <ResponsiveLayout
+            threshold={600}
+            renderBigScreen={() => <BigScreen />}
+            renderSmallScreen={() => <SmallScreen />}
+          />
+        </div>
+        <div className="footer-layout">
+          <Footer />
+        </div>
+      </div>
+    </WindowDimensionsProvider>
   );
-}
+};
 
 export default App;
