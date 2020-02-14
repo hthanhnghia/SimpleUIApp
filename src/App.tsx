@@ -6,25 +6,28 @@ import ResponsiveLayout from './layout/ResponsiveLayout/';
 import BigScreen from './layout/BigScreen/';
 import SmallScreen from './layout/SmallScreen/';
 import WindowDimensionsProvider from './components/WindowDimensionsProvider';
+import ThemeProvider from './components/ThemeProvider';
 
-const App = () => {
+const App = (theme: any) => {
   return (
     <WindowDimensionsProvider>
-      <div className="container">
-        <div className="header-layout">
-          <Header />
+      <ThemeProvider themeName={'themeA'}>
+        <div className="container">
+          <div className="header-layout">
+            <Header />
+          </div>
+          <div className="center-layout">
+            <ResponsiveLayout
+              threshold={600}
+              renderBigScreen={() => <BigScreen />}
+              renderSmallScreen={() => <SmallScreen />}
+            />
+          </div>
+          <div className="footer-layout">
+            <Footer />
+          </div>
         </div>
-        <div className="center-layout">
-          <ResponsiveLayout
-            threshold={600}
-            renderBigScreen={() => <BigScreen />}
-            renderSmallScreen={() => <SmallScreen />}
-          />
-        </div>
-        <div className="footer-layout">
-          <Footer />
-        </div>
-      </div>
+      </ThemeProvider>
     </WindowDimensionsProvider>
   );
 };

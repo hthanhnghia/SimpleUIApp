@@ -1,7 +1,10 @@
 import React from 'react';
+import { ThemeType } from '../../themes';
+import { useTheme } from '../ThemeProvider';
 import './index.css';
 
 function Right() {
-  return <div className="right"></div>;
+  const theme: ThemeType = useTheme();
+  return <div className="right" style={{ backgroundColor: theme.right }}></div>;
 }
 export default Right;

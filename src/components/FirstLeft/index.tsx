@@ -1,7 +1,15 @@
 import React from 'react';
+import { ThemeType } from '../../themes';
+import { useTheme } from '../ThemeProvider';
 import './index.css';
 
 function FirstLeft() {
-  return <div className="first-left"></div>;
+  const theme: ThemeType = useTheme();
+  return (
+    <div
+      className="first-left"
+      style={{ backgroundColor: theme.firstLeft }}
+    ></div>
+  );
 }
 export default FirstLeft;
